@@ -20,6 +20,7 @@ export class EditServerComponent implements OnInit {
 
   ngOnInit() {
     // console.log(this.route);
+    // console.log(this.route.snapshot);
     // console.log(this.route.snapshot.queryParams);
     // console.log(this.route.snapshot.fragment);
 
