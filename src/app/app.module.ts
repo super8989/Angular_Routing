@@ -12,6 +12,7 @@ import { UserComponent } from './users/user/user.component';
 import { ServersService } from './servers/servers.service';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,6 +29,8 @@ const appRoutes: Routes = [
       { path: ':id/edit', component: EditServerComponent },
     ],
   },
+  { path: 'not-found', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '/not-found' },
 ];
 
 @NgModule({
@@ -39,6 +42,7 @@ const appRoutes: Routes = [
     EditServerComponent,
     ServerComponent,
     UserComponent,
+    PageNotFoundComponent,
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [ServersService],
