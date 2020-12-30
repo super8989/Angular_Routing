@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './servers/auth.service';
+import { AuthGuard } from './servers/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,7 @@ import { AppRoutingModule } from './app-routing.module';
     PageNotFoundComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
-  providers: [ServersService],
+  providers: [ServersService, AuthService, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

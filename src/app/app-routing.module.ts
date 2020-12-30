@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './servers/auth-guard.service';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { ServerComponent } from './servers/server/server.component';
 import { ServersComponent } from './servers/servers.component';
@@ -16,8 +17,10 @@ const appRoutes: Routes = [
     component: UsersComponent,
     children: [{ path: ':id/:name', component: UserComponent }],
   },
+  // AuthGuard protects the included path and all children
   {
     path: 'servers',
+    canActivate: [AuthGuard],
     component: ServersComponent,
     children: [
       { path: ':id', component: ServerComponent },
