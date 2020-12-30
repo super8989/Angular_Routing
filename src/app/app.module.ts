@@ -16,6 +16,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
+  // { path: '', redirectTo: '/not-found', pathMatch: 'full' },
   {
     path: 'users',
     component: UsersComponent,
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
     ],
   },
   { path: 'not-found', component: PageNotFoundComponent },
+  // ** = wildcard
   { path: '**', redirectTo: '/not-found' },
 ];
 
