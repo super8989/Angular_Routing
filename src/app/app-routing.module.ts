@@ -17,10 +17,12 @@ const appRoutes: Routes = [
     component: UsersComponent,
     children: [{ path: ':id/:name', component: UserComponent }],
   },
-  // AuthGuard protects the included path and all children
+  // canActivate: [AuthGuard] protects the included path and all children
+  // canActivateChild protects children only
   {
     path: 'servers',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     component: ServersComponent,
     children: [
       { path: ':id', component: ServerComponent },
