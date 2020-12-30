@@ -13,27 +13,7 @@ import { ServersService } from './servers/servers.service';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  // { path: '', redirectTo: '/not-found', pathMatch: 'full' },
-  {
-    path: 'users',
-    component: UsersComponent,
-    children: [{ path: ':id/:name', component: UserComponent }],
-  },
-  {
-    path: 'servers',
-    component: ServersComponent,
-    children: [
-      { path: ':id', component: ServerComponent },
-      { path: ':id/edit', component: EditServerComponent },
-    ],
-  },
-  { path: 'not-found', component: PageNotFoundComponent },
-  // ** = wildcard
-  { path: '**', redirectTo: '/not-found' },
-];
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -46,7 +26,7 @@ const appRoutes: Routes = [
     UserComponent,
     PageNotFoundComponent,
   ],
-  imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
+  imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [ServersService],
   bootstrap: [AppComponent],
 })
